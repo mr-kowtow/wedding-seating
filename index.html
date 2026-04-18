@@ -4,35 +4,41 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Manny &amp; Harshaan — Seating</title>
-<meta name="theme-color" content="#FAF7F1" />
+<meta name="theme-color" content="#18201E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --sage: #B8A98A;
-    --sage-light: #FAF8F4;
-    --sage-dark: #7A6A52;
-    --terra: #C0392B;
-    --terra-light: #FDF2F1;
-    --text: #1A1A1A;
-    --text-muted: #6B6B6B;
-    --text-hint: #AAAAAA;
-    --border: rgba(0,0,0,0.07);
-    --border-strong: rgba(0,0,0,0.13);
-    --surface: #FFFFFF;
-    --surface-2: #F8F7F5;
+    /* Winery palette — deep forest dark from rose photo, dusty blue + sage from hydrangeas, ivory from silk draping */
+    --dark:          #18201E;
+    --dark-mid:      #222E29;
+    --dusty-blue:    #7B98B0;
+    --dusty-blue-l:  #EAF0F5;
+    --sage:          #8A9E88;
+    --sage-light:    #EFF4EE;
+    --sage-dark:     #4E6B4C;
+    --ivory:         #FAF7F0;
+    --cream:         #F2EDE1;
+    --terra:         #8C4A3C;
+    --terra-light:   #F9EFED;
+    --text:          #1C1E1D;
+    --text-muted:    #5C6360;
+    --text-hint:     #9AA39F;
+    --border:        rgba(0,0,0,0.07);
+    --border-strong: rgba(0,0,0,0.11);
+    --surface:       #FFFFFF;
     --radius: 10px;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-sans:  'Jost', -apple-system, sans-serif;
   }
 
   html, body {
     height: 100%;
     font-family: var(--font-sans);
-    background: var(--surface-2);
+    background: var(--dark);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
   }
@@ -42,78 +48,100 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 0 0 3rem;
-    background: var(--surface);
-    box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+    background: var(--ivory);
+    box-shadow: 0 0 80px rgba(0,0,0,0.55);
   }
 
-  /* Header */
+  /* ── Hero — dark like the rose photo ── */
   .hero {
     text-align: center;
-    padding: 2.75rem 1.5rem 2.25rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
+    padding: 3.75rem 1.5rem 3.25rem;
+    background: var(--dark);
     position: relative;
+    overflow: hidden;
   }
+  /* Ambient glow from the flowers */
   .hero::before {
     content: '';
-    display: block;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--sage), transparent);
     position: absolute;
-    top: 0; left: 0; right: 0;
-    opacity: 0.6;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% -10%, rgba(123,152,176,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 40% at 20% 110%, rgba(138,158,136,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 40% at 80% 110%, rgba(123,152,176,0.10) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  /* Soft fade into ivory body */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--ivory));
+    pointer-events: none;
   }
   .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 12px;
-    font-weight: 500;
+    color: var(--dusty-blue);
+    margin-bottom: 20px;
+    font-weight: 400;
+    position: relative;
   }
   .hero h1 {
     font-family: var(--font-serif);
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 0.01em;
-    line-height: 1.15;
-    margin-bottom: 8px;
+    font-size: 44px;
+    font-weight: 300;
+    color: #F5F0E8;
+    letter-spacing: 0.025em;
+    line-height: 1.1;
+    margin-bottom: 0;
+    position: relative;
   }
   .hero-divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 10px 0 8px;
-    color: var(--text-hint);
-    font-size: 13px;
+    gap: 14px;
+    margin: 18px 0 12px;
+    position: relative;
   }
   .hero-divider::before,
   .hero-divider::after {
     content: '';
     display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--border-strong);
+    width: 55px;
+    height: 0.5px;
+    background: rgba(123,152,176,0.45);
+  }
+  .hero-divider-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--dusty-blue);
+    opacity: 0.65;
   }
   .hero-date {
     font-family: var(--font-serif);
     font-size: 15px;
-    color: var(--text-muted);
+    color: rgba(245,240,232,0.48);
     font-style: italic;
+    font-weight: 300;
+    position: relative;
+    letter-spacing: 0.01em;
   }
 
-  /* Search */
+  /* ── Search bar ── */
   .search-section {
-    padding: 1.25rem 1.25rem 1rem;
+    padding: 1.4rem 1.25rem 1.1rem;
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--surface);
+    background: rgba(250,247,240,0.96);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(14px);
   }
   .search-box {
     position: relative;
@@ -125,121 +153,136 @@
     transform: translateY(-50%);
     color: var(--text-hint);
     pointer-events: none;
-    font-size: 15px;
+    font-size: 14px;
   }
   .search-box input {
     width: 100%;
     font-size: 16px;
     font-family: var(--font-sans);
-    padding: 12px 14px 12px 40px;
+    font-weight: 300;
+    padding: 13px 14px 13px 40px;
     border-radius: var(--radius);
     border: 1px solid var(--border-strong);
-    background: var(--surface-2);
+    background: var(--surface);
     color: var(--text);
     outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    letter-spacing: 0.02em;
   }
   .search-box input:focus {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 3px rgba(107,140,110,0.15);
+    border-color: var(--dusty-blue);
+    box-shadow: 0 0 0 3px rgba(123,152,176,0.16);
     background: var(--surface);
   }
-  .search-box input::placeholder { color: var(--text-hint); }
+  .search-box input::placeholder {
+    color: var(--text-hint);
+    font-weight: 300;
+  }
 
-  /* Result */
+  /* ── Result card ── */
   .result {
     margin: 1.25rem 1.25rem 0;
-    padding: 1.25rem 1.5rem;
+    padding: 1.4rem 1.5rem;
     border-radius: var(--radius);
-    border: 1px solid var(--sage);
-    background: var(--sage-light);
+    border: 1px solid rgba(123,152,176,0.42);
+    background: linear-gradient(135deg, #EBF1F6 0%, #F3F6F3 100%);
     display: none;
-    animation: fadeIn 0.2s ease;
+    animation: fadeIn 0.22s ease;
+    box-shadow: 0 3px 18px rgba(123,152,176,0.14);
   }
   .result.not-found {
-    border-color: var(--terra);
+    border-color: rgba(140,74,60,0.3);
     background: var(--terra-light);
+    box-shadow: none;
   }
   .result-name {
     font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 400;
     color: var(--text);
     margin-bottom: 2px;
+    letter-spacing: 0.01em;
   }
   .result-table-num {
     font-family: var(--font-serif);
-    font-size: 48px;
-    font-weight: 600;
-    color: var(--sage-dark);
+    font-size: 54px;
+    font-weight: 300;
+    color: var(--dark);
     line-height: 1;
-    margin: 4px 0 2px;
+    margin: 5px 0 3px;
+    letter-spacing: -0.01em;
   }
   .result-label {
-    font-size: 13px;
-    color: var(--sage-dark);
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    color: var(--dusty-blue);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
   }
   .result-detail {
     font-size: 12px;
     color: var(--text-muted);
-    margin-top: 3px;
+    margin-top: 5px;
+    font-weight: 300;
   }
   .not-found-msg {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--terra);
-    font-weight: 500;
+    font-weight: 400;
+    font-family: var(--font-serif);
   }
   .not-found-hint {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     margin-top: 4px;
+    font-weight: 300;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-4px); }
+    from { opacity: 0; transform: translateY(-5px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* Section heading */
+  /* ── Section heading ── */
   .section-heading {
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-hint);
-    padding: 1.5rem 1.25rem 0.6rem;
+    padding: 1.75rem 1.25rem 0.7rem;
   }
 
-  /* Table cards */
+  /* ── Table cards ── */
   .tables-list {
     padding: 0 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
   .table-card {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--surface);
     overflow: hidden;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.18s, box-shadow 0.18s;
   }
   .table-card.highlighted {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 2px rgba(107,140,110,0.15);
+    border-color: rgba(123,152,176,0.5);
+    box-shadow: 0 2px 14px rgba(123,152,176,0.13);
   }
   .table-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 14px;
-    background: var(--surface-2);
+    padding: 11px 14px;
+    background: var(--ivory);
     border-bottom: 1px solid var(--border);
     cursor: pointer;
     user-select: none;
+    transition: background 0.15s;
   }
+  .table-header:hover { background: var(--cream); }
   .table-header-left {
     display: flex;
     align-items: center;
@@ -256,77 +299,95 @@
     justify-content: center;
     font-family: var(--font-serif);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--text-muted);
     flex-shrink: 0;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
   }
   .table-card.highlighted .table-num-badge {
-    background: var(--sage);
-    border-color: var(--sage);
-    color: #fff;
+    background: var(--dark);
+    border-color: var(--dark);
+    color: rgba(245,240,232,0.9);
   }
   .table-name {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 400;
     color: var(--text);
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
   }
   .table-pax-badge {
-    font-size: 11px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
     color: var(--text-hint);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 2px 8px;
+    padding: 2px 9px;
   }
   .table-chevron {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-hint);
     transition: transform 0.2s;
   }
   .table-body {
     display: none;
-    padding: 10px 14px 12px;
+    padding: 10px 14px 14px;
+    background: var(--surface);
   }
   .table-body.open { display: block; }
   .guest-pill-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 5px;
     margin-top: 4px;
   }
   .guest-pill {
     font-size: 12px;
+    font-weight: 300;
     color: var(--text-muted);
-    background: var(--surface-2);
+    background: var(--ivory);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 4px 10px;
-    transition: background 0.15s;
+    padding: 4px 11px;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    letter-spacing: 0.02em;
   }
   .guest-pill.match {
-    background: var(--sage-light);
-    border-color: var(--sage);
-    color: var(--sage-dark);
-    font-weight: 500;
+    background: #E6EFF6;
+    border-color: rgba(123,152,176,0.48);
+    color: #3A586E;
+    font-weight: 400;
   }
 
-  /* Footer */
+  /* ── Footer ── */
   .footer {
     text-align: center;
-    padding: 2rem 1.25rem 1rem;
-    font-size: 12px;
+    padding: 2.5rem 1.25rem 1.5rem;
+    font-size: 11px;
+    font-weight: 300;
     color: var(--text-hint);
     border-top: 1px solid var(--border);
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    letter-spacing: 0.03em;
   }
   .footer strong {
     font-family: var(--font-serif);
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--text-muted);
-    font-weight: 600;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
+    letter-spacing: 0.04em;
+  }
+  .footer-venue {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dusty-blue);
+    font-weight: 400;
   }
 </style>
 </head>
@@ -336,13 +397,15 @@
   <div class="hero">
     <div class="hero-eyebrow">Reception Seating</div>
     <h1>Manny &amp; Harshaan</h1>
-    <div class="hero-divider">✦</div>
-    <div class="hero-date">27 April 2026 &nbsp;·&nbsp; Rochford Wines, Yarra Valley</div>
+    <div class="hero-divider">
+      <div class="hero-divider-dot"></div>
+    </div>
+    <div class="hero-date">27 April 2026 &nbsp;&middot;&nbsp; Rochford Wines, Yarra Valley</div>
   </div>
 
   <div class="search-section">
     <div class="search-box">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon">&#x2315;</span>
       <input
         type="text"
         id="search"
@@ -360,8 +423,9 @@
   <div class="tables-list" id="tables-list"></div>
 
   <div class="footer">
-    <strong>Manny &amp; Harshaan</strong><br>
-    27 April 2026 · Rochford Wines
+    <strong>Manny &amp; Harshaan</strong>
+    27 April 2026 &nbsp;&middot;&nbsp; Rochford Wines
+    <div class="footer-venue">Yarra Valley, Victoria</div>
   </div>
 
 </div>
@@ -474,7 +538,7 @@ function buildTables() {
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
           <span class="table-pax-badge">${t.guests.length} guests</span>
-          <span class="table-chevron" id="chev-${t.id}">▼</span>
+          <span class="table-chevron" id="chev-${t.id}">&#9660;</span>
         </div>
       </div>
       <div class="table-body" id="tb-${t.id}">
@@ -502,13 +566,9 @@ function doSearch(q) {
   if (!nq) {
     resultEl.style.display = "none";
     resultEl.className = "result";
-    document.querySelectorAll(".table-card").forEach(c => {
-      c.classList.remove("highlighted");
-    });
+    document.querySelectorAll(".table-card").forEach(c => c.classList.remove("highlighted"));
     document.querySelectorAll(".guest-pill").forEach(p => p.classList.remove("match"));
-    document.querySelectorAll(".table-body").forEach(b => {
-      b.classList.remove("open");
-    });
+    document.querySelectorAll(".table-body").forEach(b => b.classList.remove("open"));
     document.querySelectorAll(".table-chevron").forEach(c => c.style.transform = "");
     return;
   }
@@ -529,7 +589,7 @@ function doSearch(q) {
     resultEl.style.display = "block";
     resultEl.className = "result not-found";
     resultEl.innerHTML = `
-      <div class="not-found-msg">No guest found for "${q.trim()}"</div>
+      <div class="not-found-msg">No guest found for &ldquo;${q.trim()}&rdquo;</div>
       <div class="not-found-hint">Try a shorter name or check the spelling.</div>
     `;
     return;
@@ -541,9 +601,9 @@ function doSearch(q) {
   resultEl.innerHTML = unique.map(m => `
     <div class="result-name">${m.guest}</div>
     <div class="result-table-num">${m.table.label}</div>
-    <div class="result-label">Your seat is at ${m.table.label}</div>
-    <div class="result-detail">${m.table.pax}-person table</div>
-  `).join('<hr style="margin:12px 0;border:none;border-top:0.5px solid rgba(29,158,117,0.3)">');
+    <div class="result-label">Your seat</div>
+    <div class="result-detail">${m.table.guests.length}-person table</div>
+  `).join('<hr style="margin:14px 0;border:none;border-top:0.5px solid rgba(123,152,176,0.3)">');
 
   const seenTables = new Set(unique.map(m => m.table.id));
   seenTables.forEach(id => {
@@ -552,8 +612,8 @@ function doSearch(q) {
       card.classList.add("highlighted");
       const body = document.getElementById("tb-" + id);
       const chev = document.getElementById("chev-" + id);
-      if (body) { body.classList.add("open"); }
-      if (chev) { chev.style.transform = "rotate(180deg)"; }
+      if (body) body.classList.add("open");
+      if (chev) chev.style.transform = "rotate(180deg)";
     }
   });
 
