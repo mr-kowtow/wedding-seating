@@ -4,41 +4,35 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Manny &amp; Harshaan — Seating</title>
-<meta name="theme-color" content="#18201E" />
+<meta name="theme-color" content="#FAF7F1" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Winery palette — deep forest dark from rose photo, dusty blue + sage from hydrangeas, ivory from silk draping */
-    --dark:          #18201E;
-    --dark-mid:      #222E29;
-    --dusty-blue:    #7B98B0;
-    --dusty-blue-l:  #EAF0F5;
-    --sage:          #8A9E88;
-    --sage-light:    #EFF4EE;
-    --sage-dark:     #4E6B4C;
-    --ivory:         #FAF7F0;
-    --cream:         #F2EDE1;
-    --terra:         #8C4A3C;
-    --terra-light:   #F9EFED;
-    --text:          #1C1E1D;
-    --text-muted:    #5C6360;
-    --text-hint:     #9AA39F;
-    --border:        rgba(0,0,0,0.07);
-    --border-strong: rgba(0,0,0,0.11);
-    --surface:       #FFFFFF;
+    --sage: #B8A98A;
+    --sage-light: #FAF8F4;
+    --sage-dark: #7A6A52;
+    --terra: #C0392B;
+    --terra-light: #FDF2F1;
+    --text: #1A1A1A;
+    --text-muted: #6B6B6B;
+    --text-hint: #AAAAAA;
+    --border: rgba(0,0,0,0.07);
+    --border-strong: rgba(0,0,0,0.13);
+    --surface: #FFFFFF;
+    --surface-2: #F8F7F5;
     --radius: 10px;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans:  'Jost', -apple-system, sans-serif;
+    --font-sans: 'Inter', -apple-system, sans-serif;
   }
 
   html, body {
     height: 100%;
     font-family: var(--font-sans);
-    background: var(--dark);
+    background: var(--surface-2);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
   }
@@ -48,100 +42,78 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 0 0 3rem;
-    background: var(--ivory);
-    box-shadow: 0 0 80px rgba(0,0,0,0.55);
+    background: var(--surface);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.06);
   }
 
-  /* ── Hero — dark like the rose photo ── */
+  /* Header */
   .hero {
     text-align: center;
-    padding: 3.75rem 1.5rem 3.25rem;
-    background: var(--dark);
+    padding: 2.75rem 1.5rem 2.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
     position: relative;
-    overflow: hidden;
   }
-  /* Ambient glow from the flowers */
   .hero::before {
     content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--sage), transparent);
     position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 90% 55% at 50% -10%, rgba(123,152,176,0.18) 0%, transparent 65%),
-      radial-gradient(ellipse 55% 40% at 20% 110%, rgba(138,158,136,0.13) 0%, transparent 55%),
-      radial-gradient(ellipse 55% 40% at 80% 110%, rgba(123,152,176,0.10) 0%, transparent 55%);
-    pointer-events: none;
-  }
-  /* Soft fade into ivory body */
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 48px;
-    background: linear-gradient(to bottom, transparent, var(--ivory));
-    pointer-events: none;
+    top: 0; left: 0; right: 0;
+    opacity: 0.6;
   }
   .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 0.22em;
+    font-size: 11px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--dusty-blue);
-    margin-bottom: 20px;
-    font-weight: 400;
-    position: relative;
+    color: var(--sage);
+    margin-bottom: 12px;
+    font-weight: 500;
   }
   .hero h1 {
     font-family: var(--font-serif);
-    font-size: 44px;
-    font-weight: 300;
-    color: #F5F0E8;
-    letter-spacing: 0.025em;
-    line-height: 1.1;
-    margin-bottom: 0;
-    position: relative;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    margin-bottom: 8px;
   }
   .hero-divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin: 18px 0 12px;
-    position: relative;
+    gap: 10px;
+    margin: 10px 0 8px;
+    color: var(--text-hint);
+    font-size: 13px;
   }
   .hero-divider::before,
   .hero-divider::after {
     content: '';
     display: block;
-    width: 55px;
-    height: 0.5px;
-    background: rgba(123,152,176,0.45);
-  }
-  .hero-divider-dot {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--dusty-blue);
-    opacity: 0.65;
+    width: 40px;
+    height: 1px;
+    background: var(--border-strong);
   }
   .hero-date {
     font-family: var(--font-serif);
     font-size: 15px;
-    color: rgba(245,240,232,0.48);
+    color: var(--text-muted);
     font-style: italic;
-    font-weight: 300;
-    position: relative;
-    letter-spacing: 0.01em;
   }
 
-  /* ── Search bar ── */
+  /* Search */
   .search-section {
-    padding: 1.4rem 1.25rem 1.1rem;
+    padding: 1.25rem 1.25rem 1rem;
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(250,247,240,0.96);
+    background: var(--surface);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(8px);
   }
   .search-box {
     position: relative;
@@ -153,136 +125,121 @@
     transform: translateY(-50%);
     color: var(--text-hint);
     pointer-events: none;
-    font-size: 14px;
+    font-size: 15px;
   }
   .search-box input {
     width: 100%;
     font-size: 16px;
     font-family: var(--font-sans);
-    font-weight: 300;
-    padding: 13px 14px 13px 40px;
+    padding: 12px 14px 12px 40px;
     border-radius: var(--radius);
     border: 1px solid var(--border-strong);
-    background: var(--surface);
+    background: var(--surface-2);
     color: var(--text);
     outline: none;
-    transition: border-color 0.18s, box-shadow 0.18s;
-    letter-spacing: 0.02em;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
   .search-box input:focus {
-    border-color: var(--dusty-blue);
-    box-shadow: 0 0 0 3px rgba(123,152,176,0.16);
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(107,140,110,0.15);
     background: var(--surface);
   }
-  .search-box input::placeholder {
-    color: var(--text-hint);
-    font-weight: 300;
-  }
+  .search-box input::placeholder { color: var(--text-hint); }
 
-  /* ── Result card ── */
+  /* Result */
   .result {
     margin: 1.25rem 1.25rem 0;
-    padding: 1.4rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     border-radius: var(--radius);
-    border: 1px solid rgba(123,152,176,0.42);
-    background: linear-gradient(135deg, #EBF1F6 0%, #F3F6F3 100%);
+    border: 1px solid var(--sage);
+    background: var(--sage-light);
     display: none;
-    animation: fadeIn 0.22s ease;
-    box-shadow: 0 3px 18px rgba(123,152,176,0.14);
+    animation: fadeIn 0.2s ease;
   }
   .result.not-found {
-    border-color: rgba(140,74,60,0.3);
+    border-color: var(--terra);
     background: var(--terra-light);
-    box-shadow: none;
   }
   .result-name {
     font-family: var(--font-serif);
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
     color: var(--text);
     margin-bottom: 2px;
-    letter-spacing: 0.01em;
   }
   .result-table-num {
     font-family: var(--font-serif);
-    font-size: 54px;
-    font-weight: 300;
-    color: var(--dark);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--sage-dark);
     line-height: 1;
-    margin: 5px 0 3px;
-    letter-spacing: -0.01em;
+    margin: 4px 0 2px;
   }
   .result-label {
-    font-size: 11px;
+    font-size: 13px;
+    color: var(--sage-dark);
     font-weight: 500;
-    color: var(--dusty-blue);
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
   .result-detail {
     font-size: 12px;
     color: var(--text-muted);
-    margin-top: 5px;
-    font-weight: 300;
+    margin-top: 3px;
   }
   .not-found-msg {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--terra);
-    font-weight: 400;
-    font-family: var(--font-serif);
+    font-weight: 500;
   }
   .not-found-hint {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     margin-top: 4px;
-    font-weight: 300;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
+    from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── Section heading ── */
+  /* Section heading */
   .section-heading {
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-hint);
-    padding: 1.75rem 1.25rem 0.7rem;
+    padding: 1.5rem 1.25rem 0.6rem;
   }
 
-  /* ── Table cards ── */
+  /* Table cards */
   .tables-list {
     padding: 0 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
   .table-card {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--surface);
     overflow: hidden;
-    transition: border-color 0.18s, box-shadow 0.18s;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
   .table-card.highlighted {
-    border-color: rgba(123,152,176,0.5);
-    box-shadow: 0 2px 14px rgba(123,152,176,0.13);
+    border-color: var(--sage);
+    box-shadow: 0 0 0 2px rgba(107,140,110,0.15);
   }
   .table-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 11px 14px;
-    background: var(--ivory);
+    padding: 10px 14px;
+    background: var(--surface-2);
     border-bottom: 1px solid var(--border);
     cursor: pointer;
     user-select: none;
-    transition: background 0.15s;
   }
-  .table-header:hover { background: var(--cream); }
   .table-header-left {
     display: flex;
     align-items: center;
@@ -299,95 +256,77 @@
     justify-content: center;
     font-family: var(--font-serif);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-muted);
     flex-shrink: 0;
-    transition: background 0.18s, border-color 0.18s, color 0.18s;
   }
   .table-card.highlighted .table-num-badge {
-    background: var(--dark);
-    border-color: var(--dark);
-    color: rgba(245,240,232,0.9);
+    background: var(--sage);
+    border-color: var(--sage);
+    color: #fff;
   }
   .table-name {
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--text);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
   }
   .table-pax-badge {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-size: 11px;
     color: var(--text-hint);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 2px 9px;
+    padding: 2px 8px;
   }
   .table-chevron {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text-hint);
     transition: transform 0.2s;
   }
   .table-body {
     display: none;
-    padding: 10px 14px 14px;
-    background: var(--surface);
+    padding: 10px 14px 12px;
   }
   .table-body.open { display: block; }
   .guest-pill-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
     margin-top: 4px;
   }
   .guest-pill {
     font-size: 12px;
-    font-weight: 300;
     color: var(--text-muted);
-    background: var(--ivory);
+    background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 4px 11px;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
-    letter-spacing: 0.02em;
+    padding: 4px 10px;
+    transition: background 0.15s;
   }
   .guest-pill.match {
-    background: #E6EFF6;
-    border-color: rgba(123,152,176,0.48);
-    color: #3A586E;
-    font-weight: 400;
+    background: var(--sage-light);
+    border-color: var(--sage);
+    color: var(--sage-dark);
+    font-weight: 500;
   }
 
-  /* ── Footer ── */
+  /* Footer */
   .footer {
     text-align: center;
-    padding: 2.5rem 1.25rem 1.5rem;
-    font-size: 11px;
-    font-weight: 300;
+    padding: 2rem 1.25rem 1rem;
+    font-size: 12px;
     color: var(--text-hint);
     border-top: 1px solid var(--border);
-    margin-top: 2.5rem;
-    letter-spacing: 0.03em;
+    margin-top: 2rem;
   }
   .footer strong {
     font-family: var(--font-serif);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
     color: var(--text-muted);
+    font-weight: 600;
     display: block;
-    margin-bottom: 5px;
-    letter-spacing: 0.04em;
-  }
-  .footer-venue {
-    display: inline-block;
-    margin-top: 7px;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dusty-blue);
-    font-weight: 400;
+    margin-bottom: 4px;
   }
 </style>
 </head>
@@ -397,15 +336,13 @@
   <div class="hero">
     <div class="hero-eyebrow">Reception Seating</div>
     <h1>Manny &amp; Harshaan</h1>
-    <div class="hero-divider">
-      <div class="hero-divider-dot"></div>
-    </div>
-    <div class="hero-date">27 April 2026 &nbsp;&middot;&nbsp; Rochford Wines, Yarra Valley</div>
+    <div class="hero-divider">✦</div>
+    <div class="hero-date">27 April 2026 &nbsp;·&nbsp; Rochford Wines, Yarra Valley</div>
   </div>
 
   <div class="search-section">
     <div class="search-box">
-      <span class="search-icon">&#x2315;</span>
+      <span class="search-icon">🔍</span>
       <input
         type="text"
         id="search"
@@ -423,9 +360,8 @@
   <div class="tables-list" id="tables-list"></div>
 
   <div class="footer">
-    <strong>Manny &amp; Harshaan</strong>
-    27 April 2026 &nbsp;&middot;&nbsp; Rochford Wines
-    <div class="footer-venue">Yarra Valley, Victoria</div>
+    <strong>Manny &amp; Harshaan</strong><br>
+    27 April 2026 · Rochford Wines
   </div>
 
 </div>
@@ -435,86 +371,58 @@ const TABLES = [
   {
     id: 1,
     label: "Table 1",
-    pax: 12,
+    pax: 30,
     guests: [
-      "Mr Rajeshpal Singh","Mrs Randhir Singh","Mrs Sunitajeet Kaur","Mr Awthar Singh",
-      "Mr Ravinder Singh","Mrs Awthar Singh","Mr Sureshpal Singh","Mr Ajit Singh",
-      "Mrs Sureshpal Singh","Mr Jaspal Singh","Mrs Jaspal Singh","Mr Randhir Singh"
+      "Rajesh","Mrs Randhir","Uncle Bhajan","Sunita","Avtar","Linder",
+      "Ajit","Mrs Avtar","Pritam","Ravinder","Major Randhir","Bajan",
+      "Suresh","Ajit's Son","Nash","Mrs Suresh","Parul","Uncle Jack",
+      "Jaspal","Ms Nash","Mrs Jaspal","Mrs Jack","Dato Amar","Milind"
     ]
   },
   {
     id: 2,
     label: "Table 2",
     pax: 8,
-    guests: [
-      "Mr Amrik Singh Mangat","Mrs Bel Kaur Hayrr","Smeetha Kaur","Roshan Singh",
-      "Sandesh Singh","Milind Tiwari","Jaimen Singh","Hazelinder Kaur"
-    ]
+    guests: ["Amrik","Bel","Hazel","Smeetha","Roshan","Sandesh","Jaimen"]
   },
   {
     id: 3,
-    label: "Bridal Table",
-    pax: 2,
-    guests: ["Maanveer Singh Mangat","Harshaan Kaur Rai"]
+    label: "Table 3",
+    pax: 4,
+    guests: ["Maanveer","Harshaan"]
   },
   {
     id: 4,
     label: "Table 4",
     pax: 10,
-    guests: [
-      "Mr Ranjit Singh Rai","Mr Ajit Singh Jaswal","Mrs Bhupinder Kaur","Mrs Balveer Kaur",
-      "Datin Harbinder Kaur","Mr Charanjit Singh Khaira","Dato Dr. Parim Singh",
-      "Mr Tejvinder Singh Bhuller","Mrs Rhenu Kaur Bhuller","Mrs Jasber Kaur"
-    ]
+    guests: ["Ien","Nisha","Bryan","Lee Shien Yin","Ariele","Saniah","Chester","Annia"]
   },
   {
     id: 5,
     label: "Table 5",
     pax: 10,
-    guests: [
-      "Prisha Kaur Rai","Anil Singh Khaira","Mr Sunil Singh Lehl","Umeera Maan",
-      "Mrs Tishal Kaur Rai","Mrs Veerpaal Kaur","Saina Kaur Lehl","Mr Jasmail Singh",
-      "Tianna Kaur Lehl","Mr Manraj Singh Rai"
-    ]
+    guests: ["Prisha","Sunil","Manraj","Tishal","Saina","Tianna","Kavita","Umeera"]
   },
   {
     id: 6,
     label: "Table 6",
     pax: 10,
-    guests: [
-      "Ien Sison","Nisha Anggun","Bryan Sison","Lee Shien Yin",
-      "Christine Ariele Santos","Saniah Iman","Chester Lipit","Annia Guiling",
-      "Kavita Kaur","Cindy Gow"
-    ]
+    guests: ["Anil","Jasmail","Veerpaal","Pua Jasi","Pua Bheeray","Fefer Ajit","Fefer Chan"]
   },
   {
     id: 7,
     label: "Table 7",
-    pax: 9,
-    guests: [
-      "Yong Soo Yee","Hajera Akram","Ng Yee Chian","Rhys Breeuwer",
-      "Pooja Kaur Bhuller","Brianna DeRycke","Shyam Singh Bhuller",
-      "Navin Singh","Ashweetha Kaur"
-    ]
+    pax: 10,
+    guests: ["Soo Yee","Ranjit","Yee Chian","Bhupi","Shyam","Pua Bindhe","Fefer Prem","Teji","Renu","Pooja"]
   },
   {
     id: 8,
     label: "Table 8",
-    pax: 11,
+    pax: 20,
     guests: [
-      "Jesse Da Paz","Mr Irwan","Francine Roberts","Mrs Irwan",
-      "Mandeep Singh","Bryan Barkdori","Julie Chao","David Nguyen",
-      "Bailey Jin","Karan Dhull","Hillary Jin"
-    ]
-  },
-  {
-    id: 9,
-    label: "Table 9",
-    pax: 11,
-    guests: [
-      "Mr Jagjit Singh","Mr Hireth Singh","Mrs Jagjit Singh","Mr Nachattar Singh",
-      "Parul Bali","Mrs Parminder Kaur","Dato Seri Amar Singh","Mr Bajan Sangha",
-      "Mr Bhajan Singh Bal","Mrs Deslinder Kaur","Mrs Pritam Kaur"
+      "Hajera","Jesse","Irwan","Rhys","Francine","Mrs Irwan",
+      "Brianna","Bailey gf","Bailey","Navin","Mandeep","Bryan",
+      "Ashweetha","David","Karan"
     ]
   }
 ];
@@ -538,7 +446,7 @@ function buildTables() {
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
           <span class="table-pax-badge">${t.guests.length} guests</span>
-          <span class="table-chevron" id="chev-${t.id}">&#9660;</span>
+          <span class="table-chevron" id="chev-${t.id}">▼</span>
         </div>
       </div>
       <div class="table-body" id="tb-${t.id}">
@@ -566,9 +474,13 @@ function doSearch(q) {
   if (!nq) {
     resultEl.style.display = "none";
     resultEl.className = "result";
-    document.querySelectorAll(".table-card").forEach(c => c.classList.remove("highlighted"));
+    document.querySelectorAll(".table-card").forEach(c => {
+      c.classList.remove("highlighted");
+    });
     document.querySelectorAll(".guest-pill").forEach(p => p.classList.remove("match"));
-    document.querySelectorAll(".table-body").forEach(b => b.classList.remove("open"));
+    document.querySelectorAll(".table-body").forEach(b => {
+      b.classList.remove("open");
+    });
     document.querySelectorAll(".table-chevron").forEach(c => c.style.transform = "");
     return;
   }
@@ -589,7 +501,7 @@ function doSearch(q) {
     resultEl.style.display = "block";
     resultEl.className = "result not-found";
     resultEl.innerHTML = `
-      <div class="not-found-msg">No guest found for &ldquo;${q.trim()}&rdquo;</div>
+      <div class="not-found-msg">No guest found for "${q.trim()}"</div>
       <div class="not-found-hint">Try a shorter name or check the spelling.</div>
     `;
     return;
@@ -601,9 +513,9 @@ function doSearch(q) {
   resultEl.innerHTML = unique.map(m => `
     <div class="result-name">${m.guest}</div>
     <div class="result-table-num">${m.table.label}</div>
-    <div class="result-label">Your seat</div>
-    <div class="result-detail">${m.table.guests.length}-person table</div>
-  `).join('<hr style="margin:14px 0;border:none;border-top:0.5px solid rgba(123,152,176,0.3)">');
+    <div class="result-label">Your seat is at ${m.table.label}</div>
+    <div class="result-detail">${m.table.pax}-person table</div>
+  `).join('<hr style="margin:12px 0;border:none;border-top:0.5px solid rgba(29,158,117,0.3)">');
 
   const seenTables = new Set(unique.map(m => m.table.id));
   seenTables.forEach(id => {
@@ -612,8 +524,8 @@ function doSearch(q) {
       card.classList.add("highlighted");
       const body = document.getElementById("tb-" + id);
       const chev = document.getElementById("chev-" + id);
-      if (body) body.classList.add("open");
-      if (chev) chev.style.transform = "rotate(180deg)";
+      if (body) { body.classList.add("open"); }
+      if (chev) { chev.style.transform = "rotate(180deg)"; }
     }
   });
 
